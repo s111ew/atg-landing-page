@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'SF Pro';
+  src: url(./assets/fonts/SF-Pro-Display-Medium.otf);
+}
+
+body {
+  font-family: 'SF Pro', Arial, Helvetica, sans-serif;
+}
