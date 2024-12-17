@@ -1,8 +1,180 @@
-@font-face {
-  font-family: 'SF Pro';
-  src: url(./assets/fonts/SF-Pro-Display-Medium.otf);
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
 }
 
 body {
-  font-family: 'SF Pro', Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* User Style */
+
+@font-face {
+  font-family: "SF Pro";
+  src: url(./assets/fonts/SF-Pro-Display-Medium.otf);
+}
+
+@font-face {
+  font-family: "SF Pro Light";
+  src: url(./assets/fonts/SF-Pro-Display-Light.otf);
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url(./assets/fonts/ppneuemontreal-book.otf);
+}
+
+@font-face {
+  font-family: "PP Neue Montreal Thin";
+  src: url(./assets/fonts/ppneuemontreal-thin.otf);
+}
+
+* {
+  --grey-accent: #f2f2f2;
+}
+
+body {
+  font-family: "PP Neue Montreal", "SF Pro", Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: -1;
+  display: grid;
+}
+
+.nav-container {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 50%;
+}
+
+.bg {
+  background-color: var(--grey-accent);
+  filter: blur(1);
+}
+
+.logo > img {
+  width: 25px;
+  opacity: 0.95;
+}
+
+.logo > img:hover {
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+li {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+ul:has(li:hover) li:not(:hover) {
+  color: transparent;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.codebar {
+  gap: 40px;
+  padding: 20px 70px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-end;
+  font-family: monospace;
+}
+
+.codebar:hover {
+  cursor: pointer;
+}
+
+.codebar > span {
+  position: relative;
+  font-size: 16px;
+}
+
+.codebar > span::after {
+  content: "Copy";
+  font-family: "PP Neue Montreal";
+  font-size: 13px;
+  position: absolute;
+  opacity: 0.5;
+  right: -55px;
+  top: -11px;
 }
