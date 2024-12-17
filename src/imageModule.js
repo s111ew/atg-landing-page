@@ -7,7 +7,22 @@ import img5 from "./assets/images/carousel-1/carousel-row-1(2).png";
 import img6 from "./assets/images/carousel-1/carousel-row-1(3).png";
 import img7 from "./assets/images/carousel-1/carousel-row-1(4).png";
 
-export const images = [img1, img2, img3, img4, img5, img6, img7];
+export const images = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+];
 
 // ROW 2
 import img8 from "./assets/images/carousel-1/carousel-row-1(5).png";
@@ -18,7 +33,22 @@ import img12 from "./assets/images/carousel-1/carousel-row-1(9).png";
 import img13 from "./assets/images/carousel-1/carousel-row-1(10).png";
 import img14 from "./assets/images/carousel-1/carousel-row-1(11).png";
 
-export const imagesTwo = [img8, img9, img10, img11, img12, img13, img14];
+export const imagesTwo = [
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+];
 
 // ROW 3
 import img15 from "./assets/images/carousel-1/carousel-row-1(12).png";
@@ -29,4 +59,19 @@ import img19 from "./assets/images/carousel-1/carousel-row-1(16).png";
 import img20 from "./assets/images/carousel-1/carousel-row-1(17).png";
 import img21 from "./assets/images/carousel-1/carousel-row-1(18).png";
 
-export const imagesThree = [img15, img16, img17, img18, img19, img20, img21];
+export const imagesThree = [
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+];

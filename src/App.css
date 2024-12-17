@@ -95,9 +95,17 @@ body {
   flex-direction: column;
   padding: 50px 0px;
   gap: 70px;
+  overflow-x: hidden;
+}
+
+@keyframes slide-right-to-left {
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .row {
+  animation: slide-right-to-left 55s linear infinite;
   display: flex;
   gap: 70px;
 }
