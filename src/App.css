@@ -49,16 +49,6 @@ h6 {
 /* User Style */
 
 @font-face {
-  font-family: "SF Pro";
-  src: url(./assets/fonts/SF-Pro-Display-Medium.otf);
-}
-
-@font-face {
-  font-family: "SF Pro Light";
-  src: url(./assets/fonts/SF-Pro-Display-Light.otf);
-}
-
-@font-face {
   font-family: "PP Neue Montreal";
   src: url(./assets/fonts/ppneuemontreal-book.otf);
 }
@@ -70,12 +60,13 @@ h6 {
 
 * {
   --grey-accent: rgba(242, 242, 242, 0.5);
+  --box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.49);
+  --box-shadow-small: 0px 3px 6px 0px rgba(0, 0, 0, 0.39);
 }
 
 body {
   font-family: "PP Neue Montreal", "SF Pro", Arial, Helvetica, sans-serif;
   height: 100vh;
-  overflow: hidden;
 }
 
 #root {
@@ -85,6 +76,8 @@ body {
   justify-content: space-between;
   height: 100%;
   position: relative;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .background {
@@ -93,27 +86,59 @@ body {
   z-index: -1;
   display: flex;
   flex-direction: column;
-  padding: 50px 0px;
-  gap: 70px;
-  overflow-x: hidden;
-}
-
-@keyframes slide-right-to-left {
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.row {
-  animation: slide-right-to-left 55s linear infinite;
-  display: flex;
+  justify-content: center;
   gap: 70px;
 }
 
-.thumbnail {
-  width: 170px;
-  height: auto;
-  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.36);
+.image-container {
+  display: grid;
+  overflow: visible;
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  top: 45%;
+  padding: 5px;
+  background-color: var(--grey-accent);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-small);
+  cursor: pointer;
+}
+
+.button > img {
+  opacity: 0.6;
+  transform: scale(0.6);
+}
+
+.backward {
+  left: -25%;
+}
+
+.backward > img {
+  transform: rotate(180deg) scale(0.6);
+}
+
+.forward {
+  right: -25%;
+}
+
+canvas {
+  width: 300px;
+  height: 300px;
+  grid-row: 1;
+  grid-column: 1;
+  box-shadow: var(--box-shadow);
+}
+
+canvas:nth-child(1) {
+  transform: rotate(3deg) translateX(-8px);
+}
+canvas:nth-child(2) {
+  transform: rotate(-2deg) translate(5px, 8px);
+}
+canvas:nth-child(3) {
+  transform: rotate(1deg);
 }
 
 .nav-container {

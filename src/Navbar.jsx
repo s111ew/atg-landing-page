@@ -1,4 +1,4 @@
-import logo from "./assets/images/icons8-eye-100.png"
+import logo from "./assets/images/icons/icons8-eye-100.png"
 
 function Navbar() {
   return (
