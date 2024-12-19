@@ -4,7 +4,7 @@ function Copybar() {
   return (
     <div className="codebar bg" tabIndex={4}>
       <span>npm i alt-text-generator</span>
-      <Button />
+      <Button tabIndex={5}/>
     </div>
   )
 }

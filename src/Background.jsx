@@ -4,7 +4,7 @@ import arrow from "./assets/images/icons/arrow.svg"
 function Background() {
   return(
     <div className="background">
-      <div className="container" onMouseEnter={cursorImageIsVisible} onMouseLeave={cursorImageIsNotVisible}>
+      <div className="container" tabIndex={4} onClick={drawToCanvas} onMouseEnter={cursorImageIsVisible} onMouseLeave={cursorImageIsNotVisible}>
         <Image />
         <Canvas />
       </div>
@@ -59,5 +59,18 @@ function cursorImageIsNotVisible() {
     cursorImage.remove()
   }
 }
+
+function drawToCanvas() {
+  const canvas = document.querySelector(".canvas-to-draw")
+  const context = canvas.getContext("2d")
+  const image = document.querySelector(".image")
+
+  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height)
+  const data = imageData.data;
+
+  console.log(data.length / 4)
+};
 
 export default Background
