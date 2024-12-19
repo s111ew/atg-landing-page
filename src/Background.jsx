@@ -1,47 +1,63 @@
-import { useEffect, useRef } from "react";
-import dog from "./assets/images/png/Dog.png";
 import dunes from "./assets/images/png/Dunes.png";
-import landscape from "./assets/images/png/Landscape.png";
-import arrowForward from "./assets/images/icons/arrowForward.svg"
-
-const images = [dunes, landscape, dog];
+import arrow from "./assets/images/icons/arrow.svg"
 
 function Background() {
-  return (
+  return(
     <div className="background">
-      <div className="image-container">
-                  <CanvasImage src={images[0]} />
-                  <CanvasImage src={images[1]} />
-                  <CanvasImage src={images[2]} />
-          <div className="backward button"><img src={arrowForward} alt="" /></div>
-          <div className="forward button"><img src={arrowForward} alt="" /></div>
+      <div className="container" onMouseEnter={cursorImageIsVisible} onMouseLeave={cursorImageIsNotVisible}>
+        <Image />
+        <Canvas />
       </div>
     </div>
-  );
+  )
 }
 
-function CanvasImage({ src }) {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
-    img.src = src;
-
-    img.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    };
-  }, [src]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      height={300}
-      width={300}
-    />
-  );
+function Image() {
+  return(
+    <img className="image" src={dunes} alt="Rolling sand dunes with a blue sky backdrop" />
+  )
 }
 
-export default Background;
+function Canvas() {
+  return(
+    <canvas className="canvas-to-draw"></canvas>
+  )
+}
+
+function cursorImageIsVisible() {
+  const cursorImage = document.createElement("div")
+  cursorImage.classList.add("button")
+  cursorImage.classList.add("follow")
+  cursorImage.style.pointerEvents = "none";
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("button-container")
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = "Try"
+
+  const cursorImageIcon = document.createElement("img");
+  cursorImageIcon.src = arrow;
+  cursorImageIcon.classList.add("arrow")
+
+  buttonContainer.appendChild(textSpan)
+  buttonContainer.appendChild(cursorImageIcon)
+
+  cursorImage.appendChild(buttonContainer)
+
+  document.body.appendChild(cursorImage)
+
+  document.addEventListener("mousemove", (e) => {
+    cursorImage.style.left = e.clientX + 10 + "px"
+    cursorImage.style.top = e.clientY + 10 + "px"
+  })
+}
+
+function cursorImageIsNotVisible() {
+  const cursorImage = document.querySelector(".follow.button")
+  if (cursorImage) {
+    cursorImage.remove()
+  }
+}
+
+export default Background

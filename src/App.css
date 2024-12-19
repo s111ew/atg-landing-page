@@ -60,6 +60,7 @@ h6 {
 
 * {
   --grey-accent: rgba(242, 242, 242, 0.5);
+  --blue-accent: rgb(41, 112, 227);
   --box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.49);
   --box-shadow-small: 0px 3px 6px 0px rgba(0, 0, 0, 0.39);
 }
@@ -90,55 +91,77 @@ body {
   gap: 70px;
 }
 
-.image-container {
-  display: grid;
-  overflow: visible;
+.container {
   position: relative;
+  display: grid;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+  > * {
+    grid-area: 1 / 1;
+  }
+}
+
+.canvas-to-draw {
+  width: 400px;
+  height: 400px;
+}
+
+.follow {
+  position: absolute;
+  background-color: rgba(242, 242, 242, 0.3);
+  box-shadow: var(--box-shadow-small);
+  backdrop-filter: blur(5px);
 }
 
 .button {
-  position: absolute;
-  top: 45%;
-  padding: 5px;
-  background-color: var(--grey-accent);
-  border-radius: 50%;
-  box-shadow: var(--box-shadow-small);
+  font-family: "PP Neue Montreal";
+  font-size: 14px;
+  color: var(--blue-accent);
+  border: solid 1px var(--blue-accent);
+  padding: 1px 10px;
+  border-radius: 50px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25px;
 }
 
-.button > img {
-  opacity: 0.6;
-  transform: scale(0.6);
+.code {
+  overflow: hidden;
 }
 
-.backward {
-  left: -25%;
+.animate-button {
+  animation: move-up 4s ease forwards;
 }
 
-.backward > img {
-  transform: rotate(180deg) scale(0.6);
+@keyframes move-up {
+  12% {
+    transform: translateY(-100%);
+  }
+  88% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
 }
 
-.forward {
-  right: -25%;
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-canvas {
-  width: 300px;
-  height: 300px;
-  grid-row: 1;
-  grid-column: 1;
+.arrow {
+  height: 12px;
+}
+
+.image {
+  width: 400px;
+  height: 400px;
   box-shadow: var(--box-shadow);
-}
-
-canvas:nth-child(1) {
-  transform: rotate(3deg) translateX(-8px);
-}
-canvas:nth-child(2) {
-  transform: rotate(-2deg) translate(5px, 8px);
-}
-canvas:nth-child(3) {
-  transform: rotate(1deg);
 }
 
 .nav-container {
@@ -203,24 +226,11 @@ a {
   border-radius: 10px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   font-family: monospace;
-}
-
-.codebar:hover {
-  cursor: pointer;
 }
 
 .codebar > span {
   position: relative;
   font-size: 16px;
-}
-
-.codebar > span::after {
-  content: "Copy";
-  font-family: "PP Neue Montreal";
-  font-size: 13px;
-  position: absolute;
-  opacity: 0.5;
-  right: -55px;
-  top: -11px;
 }
