@@ -1,4 +1,5 @@
-import arrow from "./assets/images/icons/arrow.svg"
+import arrowBlue from "./assets/images/icons/arrow.svg"
+import arrowWhite from "./assets/images/icons/arrowWhite.svg"
 
 function Copybar() {
   return (
@@ -34,18 +35,31 @@ function handleClick() {
 
 function Button() {
   return(
-    <div className="code button" onClick={handleClick}>
+    <div className="code button" onClick={handleClick} onMouseEnter={arrowIsWhite} onMouseLeave={arrowIsBlue}>
       <div className="button-container top">
-        <span>Copy</span><img className="arrow" src={arrow} alt="Arrow icon"></img>
+        <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
       <div className="button-container middle">
         <span>Copied</span>
       </div>
       <div className="button-container bottom">
-        <span>Copy</span><img className="arrow" src={arrow} alt="Arrow icon"></img>
+        <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
     </div>
   )
+}
+
+function arrowIsWhite() {
+  const arrows = document.querySelectorAll(".arrow")
+  arrows.forEach(arrow => {
+    arrow.src = arrowWhite
+  })
+}
+function arrowIsBlue() {
+  const arrows = document.querySelectorAll(".arrow")
+  arrows.forEach(arrow => {
+    arrow.src = arrowBlue
+  })
 }
 
 export default Copybar
