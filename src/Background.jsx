@@ -1,10 +1,11 @@
-import dunes from "./assets/images/png/Dunes.png";
+import climbing from "./assets/images/png/Climbing.png"
 import arrow from "./assets/images/icons/arrow.svg"
+import { asciiString, htmlString } from "./asciiString"
 
 function Background() {
   return(
     <div className="background">
-      <div className="container" tabIndex={4} onClick={drawToCanvas} onMouseEnter={cursorImageIsVisible} onMouseLeave={cursorImageIsNotVisible}>
+      <div className="container" tabIndex={4} onMouseEnter={cursorImageIsVisible} onMouseLeave={cursorImageIsNotVisible}>
         <Image />
         <Canvas />
       </div>
@@ -14,14 +15,53 @@ function Background() {
 
 function Image() {
   return(
-    <img className="image" src={dunes} alt="Rolling sand dunes with a blue sky backdrop" />
+    <img className="image" src={climbing} alt="A rock climber hangs on to an overhanging cliff face with a backdrop of bright sun" />
   )
 }
 
 function Canvas() {
   return(
-    <canvas className="canvas-to-draw"></canvas>
+    <div className="canvas-to-draw" onClick={renderGrid}></div>
   )
+}
+
+function renderGrid() {
+  const canvas = document.querySelector(".canvas-to-draw");
+  canvas.classList.add("visible")
+  for (let i = 0; i < 1600; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell")
+    canvas.appendChild(cell)
+  }
+  populateGrid()
+}
+
+function populateGrid() {
+  const asciiArray = asciiString.split("")
+  const cells = document.querySelectorAll(".cell")
+  cells.forEach((cell, index) => {
+    setTimeout(() => {
+      cell.textContent = asciiArray[index]
+    }, 1 * index)
+  })
+  rePopulateGrid()
+}
+
+function rePopulateGrid() {
+  const htmlArray = htmlString.split("")
+  const cells = document.querySelectorAll(".cell")
+  let count = 0
+  cells.forEach((cell, index) => {
+    setTimeout(() => {
+      if (index >= 562 && index <= 578 || ) {
+        cell.textContent = htmlArray[count]
+        count++
+      } else {
+        cell.textContent = "."
+      }
+    }, 2000 + (1 * index))
+  })
+  console.log(htmlArray, htmlArray.length)
 }
 
 function cursorImageIsVisible() {
@@ -59,18 +99,5 @@ function cursorImageIsNotVisible() {
     cursorImage.remove()
   }
 }
-
-function drawToCanvas() {
-  const canvas = document.querySelector(".canvas-to-draw")
-  const context = canvas.getContext("2d")
-  const image = document.querySelector(".image")
-
-  context.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height)
-  const data = imageData.data;
-
-  console.log(data.length / 4)
-};
 
 export default Background
