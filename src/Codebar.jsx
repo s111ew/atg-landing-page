@@ -3,9 +3,9 @@ import arrowWhite from "./assets/images/icons/arrowWhite.svg"
 
 function Copybar() {
   return (
-    <div className="codebar bg" tabIndex={4}>
+    <div className="codebar bg">
       <span>npm i alt-text-generator</span>
-      <Button tabIndex={5}/>
+      <Button />
     </div>
   )
 }
@@ -35,7 +35,7 @@ function handleClick() {
 
 function Button() {
   return(
-    <div className="code button" onClick={handleClick} onMouseEnter={arrowIsWhite} onMouseLeave={arrowIsBlue}>
+    <div className="code button" tabIndex={4} onClick={handleClick} onMouseEnter={arrowIsWhite} onMouseLeave={arrowIsBlue}>
       <div className="button-container top">
         <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
