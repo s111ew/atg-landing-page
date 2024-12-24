@@ -1,15 +1,18 @@
 import './App.css'
 import Navbar from './Navbar.jsx'
-import Codebar from './Codebar.jsx'
-import Background from './Background.jsx'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomeLayout from './HomeLayout.jsx'
+import DocsLayout from './DocsLayout.jsx'
 
 function App() {
   return (
-    <>
-    <Background />
+  <Router>
     <Navbar />
-    <Codebar />
-    </>
+    <Routes>
+      <Route path='/' element={<HomeLayout />} />
+      <Route path='/docs' element={<DocsLayout />} />
+    </Routes>
+  </Router>
   )
 }
 

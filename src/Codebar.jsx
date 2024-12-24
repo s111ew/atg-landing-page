@@ -1,7 +1,7 @@
 import arrowBlue from "./assets/images/icons/arrow.svg"
 import arrowWhite from "./assets/images/icons/arrowWhite.svg"
 
-function Copybar() {
+function Codebar() {
   return (
     <div className="codebar bg">
       <span>npm i alt-text-generator</span>
@@ -35,7 +35,7 @@ function handleClick() {
 
 function Button() {
   return(
-    <div className="code button" tabIndex={4} onClick={handleClick} onMouseEnter={arrowIsWhite} onMouseLeave={arrowIsBlue}>
+    <div className="code button" tabIndex={4} onClick={handleClick} onMouseEnter={() => arrowChangeColour("white")} onMouseLeave={() => arrowChangeColour("blue")}>
       <div className="button-container top">
         <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
@@ -49,17 +49,17 @@ function Button() {
   )
 }
 
-function arrowIsWhite() {
+function arrowChangeColour(colour) {
   const arrows = document.querySelectorAll(".arrow")
+  let colourToApply
   arrows.forEach(arrow => {
-    arrow.src = arrowWhite
-  })
-}
-function arrowIsBlue() {
-  const arrows = document.querySelectorAll(".arrow")
-  arrows.forEach(arrow => {
-    arrow.src = arrowBlue
+    if (colour === "blue") {
+      colourToApply = arrowBlue;
+    } else if (colour === "white") {
+      colourToApply = arrowWhite;
+    }
+    arrow.src = colourToApply
   })
 }
 
-export default Copybar
+export default Codebar
