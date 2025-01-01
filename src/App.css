@@ -59,7 +59,7 @@ h6 {
 }
 
 html {
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 * {
@@ -79,11 +79,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   height: 100%;
   position: relative;
   width: 100vw;
-  overflow: hidden;
 }
 
 .background {
@@ -160,6 +158,7 @@ body {
 }
 
 .nav-container {
+  position: fixed;
   display: flex;
   gap: 5px;
   margin-top: 20px;
@@ -187,23 +186,26 @@ body {
   cursor: pointer;
 }
 
-ul {
+.nav-container > ul {
   display: flex;
   list-style: none;
-  gap: 40px;
   padding: 10px 40px;
   border-radius: 10px;
 }
 
-li:hover {
+.nav-container > li:hover {
   cursor: pointer;
 }
 
-li {
+.nav-container > li {
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-ul:has(li:hover) li:not(:hover) {
+.navbar > li {
+  padding: 0px 20px 0px 20px;
+}
+
+.nav-container > ul:has(li:hover) li:not(:hover) {
   color: transparent;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   transition: color 0.2s ease, text-shadow 0.2s ease;
@@ -219,6 +221,7 @@ a {
   padding: 20px 70px;
   margin-bottom: 60px;
   border-radius: 10px;
+  margin-top: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -284,4 +287,35 @@ a {
 
 .code:hover .arrow {
   fill: white;
+}
+
+.docs-container {
+  margin-top: 100px;
+}
+
+.docs-nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.docs-nav > li {
+  list-style: none;
+  cursor: pointer;
+  padding-top: 5px;
+}
+
+.docs-nav > li {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.docs-nav:has(li:hover) li:not(:hover) {
+  color: transparent;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.docs {
+  margin: 0px 65px 65px 225px;
 }
