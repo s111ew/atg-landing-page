@@ -68,6 +68,12 @@ html {
   --blue-accent: rgb(41, 112, 227);
   --box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.49);
   --box-shadow-small: 0px 3px 6px 0px rgba(0, 0, 0, 0.39);
+  --grey-code: #e3e3e3;
+  --code-orange: #ffa759;
+  --code-red: #ff7c73;
+  --code-blue: #a6d7ff;
+  --code-purple: #d2a8ff;
+  --code-green: #7de886;
 }
 
 body {
@@ -317,5 +323,95 @@ a {
 }
 
 .docs {
-  margin: 0px 65px 65px 225px;
+  margin: 0px 225px 65px 225px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+section {
+  scroll-margin-top: 60px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+.subheading {
+  font-style: italic;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.inline-link {
+  text-decoration: underline;
+}
+
+.inline-link:hover {
+  text-decoration: none;
+}
+
+.code-snippet {
+  padding: 2px 3px;
+  background-color: var(--grey-code);
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+  border-radius: 3px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code-box {
+  display: inline-flex;
+  background-color: var(--grey-code);
+  padding: 10px 35px;
+  border-radius: 5px;
+  font-family: monospace;
+  margin-top: 25px;
+  cursor: pointer;
+  gap: 15px;
+  align-items: center;
+}
+
+.copy-icon {
+  font-size: 10px;
+  color: grey;
+}
+
+.setup > p:nth-child(6) {
+  margin-top: 25px;
+}
+
+.code-orange {
+  color: var(--code-orange);
+}
+
+.code-red {
+  color: var(--code-red);
+}
+
+.code-blue {
+  color: var(--blue-accent);
+}
+
+.code-purple {
+  color: var(--code-purple);
+}
+
+.usage > .code-box {
+  margin-top: 0px;
+}
+
+.es-module,
+.common-js {
+  margin-bottom: 24px;
+}
+
+.example-usage {
+  margin-bottom: 24px;
 }

@@ -5,7 +5,7 @@ function DocsTitle() {
         Alt-Text Generator
       </h1>
       <p className="subheading">
-        Batch convert image files to html tags with src and alt attributes included.
+        Batch convert image files to html tags with <span className="code-snippet">src</span> and <span className="code-snippet">alt</span> attributes included.
       </p>
     </section>
   )

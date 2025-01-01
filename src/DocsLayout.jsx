@@ -7,64 +7,35 @@ import DocsUsage from "./Docs/DocsUsage.jsx"
 import DocsConfig from "./Docs/DocsConfig.jsx"
 import DocsRequirements from "./Docs/DocsRequirements.jsx"
 import DocsLicense from "./Docs/DocsLicense.jsx"
+import DocsNav from "./Docs/DocsNav.jsx"
 import { useRef } from "react"
 
 function DocsLayout() {
-  const overview = useRef()
-  const features = useRef()
-  const installation = useRef()
-  const setup = useRef()
-  const usage = useRef()
-  const config = useRef()
-  const requirements = useRef()
-  const license = useRef()
+  const overviewRef = useRef();
+  const featuresRef = useRef();
+  const installationRef = useRef();
+  const setupRef = useRef();
+  const usageRef = useRef();
+  const configRef = useRef();
+  const requirementsRef = useRef();
+  const licenseRef = useRef();
+  const refs = [overviewRef, featuresRef, installationRef, setupRef, usageRef, configRef, requirementsRef, licenseRef]
   return(
     <div className="docs-container">
-      <ul className="docs-nav">
-        <li onClick={() => {
-          scrollTo(overview)
-        }}>Overview</li>
-        <li onClick={() => {
-          scrollTo(features)
-        }}>Key Features</li>
-        <li onClick={() => {
-          scrollTo(installation)
-        }}>Installation</li>
-        <li onClick={() => {
-          scrollTo(setup)
-        }}>Setup</li>
-        <li onClick={() => {
-          scrollTo(usage)
-        }}>Usage</li>
-        <li onClick={() => {
-          scrollTo(config)
-        }}>Configuration Details</li>
-        <li onClick={() => {
-          scrollTo(requirements)
-        }}>System Requirements</li>
-        <li onClick={() => {
-          scrollTo(license)
-        }}>License</li>
-      </ul>
+      <DocsNav refs={refs} />
       <article className="docs">
         <DocsTitle />
-        <DocsOverview ref={overview}/>
-        <DocsFeatures ref={features} />
-        <DocsInstallation ref={installation} />
-        <DocsSetup ref={setup} />
-        <DocsUsage ref={usage} />
-        <DocsConfig ref={config} />
-        <DocsRequirements ref={requirements} />
-        <DocsLicense ref={license} />
+        <DocsOverview ref={overviewRef}/>
+        <DocsFeatures ref={featuresRef}/>
+        <DocsInstallation ref={installationRef}/>
+        <DocsSetup ref={setupRef}/>
+        <DocsUsage ref={usageRef}/>
+        <DocsConfig ref={configRef}/>
+        <DocsRequirements ref={requirementsRef}/>
+        <DocsLicense ref={licenseRef}/>
       </article>
     </div>
   )
-}
-
-function scrollTo(section) {
-  section.current?.scrollIntoView({
-    behaviour: 'smooth',
-  })
 }
 
 export default DocsLayout

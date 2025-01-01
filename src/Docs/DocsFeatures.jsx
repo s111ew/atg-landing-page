@@ -1,6 +1,6 @@
-function DocsFeatures() {
+function DocsFeatures({ ref }) {
   return(
-    <section className="features">
+    <section ref={ref} className="features">
       <h2>
         Key Features
       </h2>

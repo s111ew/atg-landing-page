@@ -1,6 +1,6 @@
-function DocsConfig() {
+function DocsConfig({ ref }) {
   return(
-    <section className="config">
+    <section ref={ref} className="config">
       <h2>Configuration Details</h2>
       <h4>Input Folder</h4>
       <p>The <span className="code-snippet">inputPath</span> should point to a folder contianing <span className="code-snippet">.jpg</span>, <span className="code-snippet">.jpeg</span>, or <span className="code-snippet">.png</span> images for ALT text generation.</p>

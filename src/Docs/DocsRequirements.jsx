@@ -1,6 +1,6 @@
-function DocsRequirements() {
+function DocsRequirements({ ref }) {
   return(
-    <section className="requirements">
+    <section ref={ref} className="requirements">
       <h2>System Requirements</h2>
       <ul>
         <li><span className="bold">Node.js:</span> Version 14 or higher.</li>
