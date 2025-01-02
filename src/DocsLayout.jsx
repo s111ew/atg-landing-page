@@ -8,7 +8,7 @@ import DocsConfig from "./Docs/DocsConfig.jsx"
 import DocsRequirements from "./Docs/DocsRequirements.jsx"
 import DocsLicense from "./Docs/DocsLicense.jsx"
 import DocsNav from "./Docs/DocsNav.jsx"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 function DocsLayout() {
   const overviewRef = useRef();
@@ -20,9 +20,20 @@ function DocsLayout() {
   const requirementsRef = useRef();
   const licenseRef = useRef();
   const refs = [overviewRef, featuresRef, installationRef, setupRef, usageRef, configRef, requirementsRef, licenseRef]
+
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 930);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 930)
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia)
+  })
   return(
     <div className="docs-container">
-      <DocsNav refs={refs} />
+      { isDesktop ? (<DocsNav refs={refs} />) : '' }
       <article className="docs">
         <DocsTitle />
         <DocsOverview ref={overviewRef}/>

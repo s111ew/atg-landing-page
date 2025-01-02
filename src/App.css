@@ -236,6 +236,7 @@ a {
 }
 
 .button {
+  width: 71px;
   font-family: "PP Neue Montreal";
   font-size: 14px;
   color: var(--blue-accent);
@@ -334,7 +335,7 @@ section {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .subheading {
@@ -418,4 +419,10 @@ h2 {
 
 .example-usage {
   margin-bottom: 24px;
+}
+
+@media (max-width: 930px) {
+  .docs {
+    margin: 0px 100px 65px 100px;
+  }
 }
