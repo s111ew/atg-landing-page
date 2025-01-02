@@ -24,24 +24,23 @@ function DocsUsage({ ref }) {
       </ul>
       <br />
       <p className="bold">Example</p>
-      <br />
       <div className="code-box example-usage">
-        <div className="actual-code"><p>import &#123; generateAltText &#125; from &quot;alt-text-generator&quot;;</p>
+        <div className="actual-code"><p><span className="code-red">import</span> &#123; generateAltText &#125; <span className="code-red">from</span> <span className="code-blue">&quot;alt-text-generator&quot;</span>;</p>
         <br />
-        <p>const inputPath = &quot;./images&quot;; // Path to the image folder</p>
-        <p>const outputPath = &quot;./output.html&quot;; // Path to the output file</p>
+        <p><span className="code-red">const</span> inputPath <span className="code-blue">= &quot;./images&quot;</span>; <span className="code-green">&#47;&#47; Path to the image folder</span></p>
+        <p><span className="code-red">const</span> outputPath <span className="code-blue">= &quot;./output.md&quot;</span>; <span className="code-green">&#47;&#47; Path to the output file</span></p>
         <br />
-        <p>generateAltText(inputPath, outputPath)</p>
-        <p>.then(() =&gt; console.log(&quot;Alt text generation complete.&quot;))</p>
-        <p>.catch((err) =&gt; console.log(&quot;Error generating ALT text.&quot;))</p></div>
+        <p><span className="code-purple">generateAltText</span>(inputPath, outputPath)</p>
+        <p>.<span className="code-purple">then</span>(() <span className="code-blue">=&gt;</span> console.<span className="code-purple">log</span>(<span className="code-blue">&quot;Alt text generation complete.&quot;</span>))</p>
+        <p>.<span className="code-purple">catch</span>((err) <span className="code-blue">=&gt;</span> console.<span className="code-purple">log</span>(<span className="code-blue">&quot;Error generating ALT text.&quot;</span>))</p></div>
         <span className="copy-icon">copy</span>
       </div>
       <p className="bold">Expected Output</p>
       <p>The <span className="code-snippet">outputPath</span> file will contain HTML <span className="code-snippet">&lt;img&gt;</span> tags with generated ALT text, such as:</p>
       <br />
       <div className="code-box">
-        <div className="actual-code"><p>&lt;img src=&quot;./images/image1.jpg&quot; alt=&quot;A red apple on a white plate.&quot; /&gt;</p>
-        <p>&lt;img src=&quot;./images/image2.png&quot; alt=&quot;A black cat sitting on a windowsill.&quot; /&gt;</p></div>
+        <div className="actual-code"><p>&lt;<span className="code-green">img</span> <span className="code-blue">src=&quot;./images/image1.jpg&quot; alt=&quot;A red apple on a white plate.&quot;</span> /&gt;</p>
+        <p>&lt;<span className="code-green">img</span> <span className="code-blue">src=&quot;./images/image2.png&quot; alt=&quot;A black cat sitting on a windowsill.&quot;</span> /&gt;</p></div>
         <span className="copy-icon">copy</span>
       </div>
     </section>

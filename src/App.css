@@ -70,10 +70,10 @@ html {
   --box-shadow-small: 0px 3px 6px 0px rgba(0, 0, 0, 0.39);
   --grey-code: #e3e3e3;
   --code-orange: #ffa759;
-  --code-red: #ff7c73;
+  --code-red: #e35349;
   --code-blue: #a6d7ff;
-  --code-purple: #d2a8ff;
-  --code-green: #7de886;
+  --code-purple: #b080e8;
+  --code-green: #37b041;
 }
 
 body {
@@ -188,10 +188,6 @@ body {
   opacity: 0.95;
 }
 
-.logo > img:hover {
-  cursor: pointer;
-}
-
 .nav-container > ul {
   display: flex;
   list-style: none;
@@ -251,6 +247,7 @@ a {
   flex-direction: column;
   align-items: center;
   height: 25px;
+  background-color: var(--grey-accent);
 }
 
 .code {
@@ -283,15 +280,18 @@ a {
   gap: 5px;
 }
 
-.code:hover {
+.button:hover,
+.button:focus {
   background-color: var(--blue-accent);
 }
 
-.code:hover > div {
+.button:hover > div,
+.button:focus > div {
   color: white;
 }
 
-.code:hover .arrow {
+.button:hover .arrow,
+.button:focus .arrow {
   fill: white;
 }
 
@@ -401,6 +401,10 @@ h2 {
 
 .code-purple {
   color: var(--code-purple);
+}
+
+.code-green {
+  color: var(--code-green);
 }
 
 .usage > .code-box {

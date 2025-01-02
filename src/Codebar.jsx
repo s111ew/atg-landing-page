@@ -35,7 +35,7 @@ function handleClick() {
 
 function Button() {
   return(
-    <div className="code button" tabIndex={4} onClick={handleClick} onMouseEnter={() => arrowChangeColour("white")} onMouseLeave={() => arrowChangeColour("blue")}>
+    <button className="code button" tabIndex={4} onClick={handleClick} onFocus={() => arrowChangeColour("white")}  onMouseEnter={() => arrowChangeColour("white")} onMouseLeave={() => arrowChangeColour("blue")} onBlur={() => arrowChangeColour("blue")} onKeyDown={e => e.key === 'Enter' ? handleClick :''}>
       <div className="button-container top">
         <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
@@ -45,7 +45,7 @@ function Button() {
       <div className="button-container bottom">
         <span>Copy</span><img className="arrow" src={arrowBlue} alt="Arrow icon"></img>
       </div>
-    </div>
+    </button>
   )
 }
 
