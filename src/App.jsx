@@ -6,7 +6,7 @@ import DocsLayout from './DocsLayout.jsx'
 
 function App() {
   return (
-  <Router>
+  <Router basename='/atg-landing-page'>
     <Navbar />
     <Routes>
       <Route path='/' element={<HomeLayout />} />
