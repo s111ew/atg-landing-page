@@ -12,8 +12,8 @@ function Codebar() {
 }
 
 function copyTextToUserClipboard() {
-  navigator.clipboard.writeText("npm i alt-text-generator");
-}
+  navigator.clipboard.writeText("npm i alt-text-generator")
+};
 
 function animateButton() {
   const spans = document.querySelectorAll(".code > div");
