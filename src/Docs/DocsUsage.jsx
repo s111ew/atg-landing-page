@@ -5,11 +5,15 @@ function DocsUsage({ ref }) {
       <h4>Importing the Module</h4>
       <br />
       <p>ES Modules</p>
-      <p className="code-box es-module">
+      <p onClick={() => {
+        navigator.clipboard.writeText("import { generateAltText } from 'alt-text-generator';")
+      }} className="code-box es-module">
         <span><span className="code-red">import</span> &#123; generateAltText &#125; <span className="code-red">from</span> <span className="code-blue">&quot;alt-text-generator&quot;</span>;</span> <span className="copy-icon">copy</span>
       </p>
       <p>CommonJS</p>
-      <p className="code-box common-js">
+      <p onClick={() => {
+        navigator.clipboard.writeText("const { generateAltText } = require('alt-text-generator');")
+      }} className="code-box common-js">
         <span><span className="code-red">const</span> &#123; generateAltText &#125; <span className="code-blue">=</span> <span className="code-purple">require</span>(<span className="code-blue">&quot;alt-text-generator&quot;</span>);</span> <span className="copy-icon">copy</span>
       </p>
       <h4>Calling the function</h4>
